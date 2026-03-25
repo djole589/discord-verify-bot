@@ -19,27 +19,17 @@ client.on('messageCreate', async (message) => {
   if (message.content === '!setup' && message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
 
     const embed = new EmbedBuilder()
-      .setTitle('🌋 Survive Volcano For Eggs')
+      .setTitle('✦ Verification')
       .setDescription(
-        '```\n⚠️  VERIFICATION REQUIRED  ⚠️\n```\n' +
-        '> Welcome to **Survive Volcano For Eggs**!\n> Before you can access the server, you must verify.\n\n' +
-        '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n' +
-        '🔴 **Why verify?**\n' +
-        'To keep the server safe from bots and raiders.\n\n' +
-        '⚡ **How long does it take?**\n' +
-        'Less than a second — just click the button!\n\n' +
-        '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
+        '> Welcome to **Survive Volcano For Eggs**!\n\n' +
+        'Click the button below to confirm you\'re not a bot and gain full access to the server.\n\n' +
+        '**📋 Rules**\n By clicking the button you accept our server rules.\n\n' +
+        '**⏱️ Quick**\n Verification takes less than a second.'
       )
-      .setColor(0xFF0000)
+      .setColor(0x5865F2)
       .setThumbnail(client.user.displayAvatarURL({ size: 1024 }))
-      .setImage('https://i.imgur.com/your-banner.png') // opcionalno — stavi tvoj banner URL ili obriši ovaj red
-      .addFields(
-        { name: '📋 Rules', value: 'By verifying you agree to follow all server rules.', inline: true },
-        { name: '🛡️ Security', value: 'This server is protected against bots & raids.', inline: true },
-        { name: '🎮 Access', value: 'After verifying you get full access to all channels.', inline: false }
-      )
       .setFooter({ 
-        text: '🌋 Survive Volcano For Eggs • Verification System', 
+        text: '🌋 Survive Volcano For Eggs • Verification', 
         iconURL: message.guild.iconURL() 
       })
       .setTimestamp();
@@ -47,8 +37,8 @@ client.on('messageCreate', async (message) => {
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setCustomId('verify_btn')
-        .setLabel('✅  Verify Now')
-        .setStyle(ButtonStyle.Danger) // crveno dugme da prati temu
+        .setLabel('✅  Verify')
+        .setStyle(ButtonStyle.Primary)
     );
 
     await message.channel.send({ embeds: [embed], components: [row] });
