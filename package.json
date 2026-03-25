@@ -10,11 +10,3 @@
     "dotenv": "^16.0.0"
   }
 }
-```
-
----
-
-**Fajl 3:** `.gitignore`
-```
-.env
-node_modules
